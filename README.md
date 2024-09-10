@@ -47,7 +47,7 @@ $'
 Z = \frac{p_{ad} - p_{psa}}{\sqrt{p_{combined}(1 - p_{combined})\left(\frac{1}{n_{ad}} + \frac{1}{n_{psa}}\right)}}
 '$
 Where:
-- \( p_{ad} \) = Conversion rate of the ad group.
+- $' p_{ad} '$ = Conversion rate of the ad group.
 - \( p_{psa} \) = Conversion rate of the PSA group.
 - \( p_{combined} \) = Combined conversion rate of both groups.
 - \( n_{ad} \) = Number of users in the ad group.
