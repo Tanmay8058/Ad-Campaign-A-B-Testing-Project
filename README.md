@@ -64,6 +64,7 @@ To further understand the relationship between seeing ads and conversions, we pe
 $'
 \chi^2 = \sum \frac{(O - E)^2}{E}
 '$
+
 Where:
 - $' O'$ = Observed frequency (actual conversions in each group).
 - $' E'$ = Expected frequency (based on overall conversion rate).
@@ -85,6 +86,7 @@ We then analyzed conversion rates by these combinations, allowing us to identify
 $'
 \text{Lift} = \frac{p_{ad} - p_{psa}}{p_{psa}}
 '$
+
 Where:
 - $' p_{ad}'$ = Conversion rate of the ad group.
 - $' p_{psa}'$ = Conversion rate of the PSA group.
