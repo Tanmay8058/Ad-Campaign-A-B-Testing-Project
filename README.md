@@ -71,6 +71,5 @@ Where:
 
 We created a new feature combining `most ads day` and `most ads hour` to analyze conversion rates by day and time.
 
-```python
 data['day and hour'] = data['most ads day'].astype(str) + '_' + data['most ads hour'].astype(str)
 We then analyzed conversion rates by these combinations, allowing us to identify specific days and times when ads were most effective.
