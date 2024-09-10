@@ -72,4 +72,37 @@ Where:
 We created a new feature combining `most ads day` and `most ads hour` to analyze conversion rates by day and time.
 
 data['day and hour'] = data['most ads day'].astype(str) + '_' + data['most ads hour'].astype(str)
+
 We then analyzed conversion rates by these combinations, allowing us to identify specific days and times when ads were most effective.
+
+
+### 7. Measuring Lift
+
+**Lift** quantifies how much of the campaign's success is attributable to the ads. We calculated the lift to measure the incremental increase in conversions due to the ads compared to the PSA group.
+
+#### Formula for Lift:
+\[
+\text{Lift} = \frac{p_{ad} - p_{psa}}{p_{psa}}
+\]
+Where:
+- \( p_{ad} \) = Conversion rate of the ad group.
+- \( p_{psa} \) = Conversion rate of the PSA group.
+
+### Conclusion
+
+After thorough analysis, we found that the marketing campaign utilizing ads significantly outperformed the PSA strategy in driving conversions. The statistical tests indicated a significant difference in conversion rates, validating the effectiveness of the ads.
+
+Additionally, the analysis of day and time combinations revealed that certain times, such as Saturday at 5 AM and 6 AM, showed peak conversion rates. This insight into user behavior suggests that these timings could be optimal for future advertising strategies.
+
+In summary, our findings confirm that ads effectively enhanced the conversion rate, and we gained actionable insights to inform future marketing efforts.
+
+### Marketing Strategies
+
+Based on the analysis, the following strategies are recommended for future campaigns:
+
+1. **Targeted Advertising**: Focus on time slots where conversion rates are highest, particularly on weekends.
+2. **Enhanced Weekend Campaigns**: Allocate more resources to ads on Saturday mornings, where engagement is notably higher.
+3. **Continuous Monitoring**: Regularly analyze user behavior patterns to adapt ad placements in real-time.
+4. **Segmented Campaigns**: Tailor campaigns to specific user segments based on their interaction with ads to maximize conversion rates.
+
+
