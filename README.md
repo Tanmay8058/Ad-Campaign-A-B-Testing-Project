@@ -43,9 +43,10 @@ This helped us understand whether showing ads was more effective than showing PS
 To determine whether the difference in conversion rates between the ad group and PSA group was statistically significant, we used the **Z-test for proportions**. This test compares the conversion rates of both groups.
 
 #### Formula for Z-Statistic:
-$'
+$
 Z = \frac{p_{ad} - p_{psa}}{\sqrt{p_{combined}(1 - p_{combined})\left(\frac{1}{n_{ad}} + \frac{1}{n_{psa}}\right)}}
-'$
+$
+
 Where:
 - $' p_{ad} '$ = Conversion rate of the ad group.
 - \( p_{psa} \) = Conversion rate of the PSA group.
