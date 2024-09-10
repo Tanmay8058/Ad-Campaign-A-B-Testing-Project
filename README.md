@@ -43,16 +43,16 @@ This helped us understand whether showing ads was more effective than showing PS
 To determine whether the difference in conversion rates between the ad group and PSA group was statistically significant, we used the **Z-test for proportions**. This test compares the conversion rates of both groups.
 
 #### Formula for Z-Statistic:
-$
+$'
 Z = \frac{p_{ad} - p_{psa}}{\sqrt{p_{combined}(1 - p_{combined})\left(\frac{1}{n_{ad}} + \frac{1}{n_{psa}}\right)}}
-$
+'$
 
 Where:
 - $' p_{ad} '$ = Conversion rate of the ad group.
-- \( p_{psa} \) = Conversion rate of the PSA group.
-- \( p_{combined} \) = Combined conversion rate of both groups.
-- \( n_{ad} \) = Number of users in the ad group.
-- \( n_{psa} \) = Number of users in the PSA group.
+- $' p_{psa}'$ = Conversion rate of the PSA group.
+- $' p_{combined}'$ = Combined conversion rate of both groups.
+- $' n_{ad}'$ = Number of users in the ad group.
+- $' n_{psa}'$ = Number of users in the PSA group.
 
 We then used the p-value corresponding to the Z-statistic to check for statistical significance.
 
@@ -61,12 +61,12 @@ We then used the p-value corresponding to the Z-statistic to check for statistic
 To further understand the relationship between seeing ads and conversions, we performed a **Chi-Square test for independence**. This test helped us determine whether the probability of conversion was dependent on whether the user saw an ad or a PSA.
 
 #### Formula for Chi-Square:
-\[
+$'
 \chi^2 = \sum \frac{(O - E)^2}{E}
-\]
+'$
 Where:
-- \( O \) = Observed frequency (actual conversions in each group).
-- \( E \) = Expected frequency (based on overall conversion rate).
+- $' O'$ = Observed frequency (actual conversions in each group).
+- $' E'$ = Expected frequency (based on overall conversion rate).
 
 ### 6. Day and Time Analysis
 
@@ -82,12 +82,12 @@ We then analyzed conversion rates by these combinations, allowing us to identify
 **Lift** quantifies how much of the campaign's success is attributable to the ads. We calculated the lift to measure the incremental increase in conversions due to the ads compared to the PSA group.
 
 #### Formula for Lift:
-\[
+$'
 \text{Lift} = \frac{p_{ad} - p_{psa}}{p_{psa}}
-\]
+'$
 Where:
-- \( p_{ad} \) = Conversion rate of the ad group.
-- \( p_{psa} \) = Conversion rate of the PSA group.
+- $' p_{ad}'$ = Conversion rate of the ad group.
+- $' p_{psa}'$ = Conversion rate of the PSA group.
 
 ### Conclusion
 
