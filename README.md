@@ -60,9 +60,11 @@ We then used the p-value corresponding to the Z-statistic to check for statistic
 To further understand the relationship between seeing ads and conversions, we performed a **Chi-Square test for independence**. This test helped us determine whether the probability of conversion was dependent on whether the user saw an ad or a PSA.
 
 #### Formula for Chi-Square:
+$$
 \[
 \chi^2 = \sum \frac{(O - E)^2}{E}
 \]
+$$
 Where:
 - \( O \) = Observed frequency (actual conversions in each group).
 - \( E \) = Expected frequency (based on overall conversion rate).
