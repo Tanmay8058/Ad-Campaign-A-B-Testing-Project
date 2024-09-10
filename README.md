@@ -1,82 +1,78 @@
-# Ad Campaign A/B Testing
+# Marketing A/B Testing Campaign Analysis
 
 ## Project Overview
 
-In this project, we are analyzing a marketing A/B testing dataset. The goal is to determine whether the marketing campaign (ads) was successful in increasing conversion rates and to assess how much of the success can be attributed to the ads specifically. We also aim to identify patterns such as the best day and time to run ads based on conversion rates.
+In this project, we analyze the results of an A/B test conducted for a marketing campaign. The goal is to determine whether showing ads resulted in more conversions compared to a Public Service Announcement (PSA) and evaluate how much of the campaign's success can be attributed specifically to the ads.
 
-We will be following the A/B testing methodology to compare two groups:
-- **Ad Group**: Users who were shown advertisements.
-- **PSA Group**: Users who were shown a public service announcement (control group).
+We will also investigate user behavior patterns, including the best days and times to show ads, and assess the statistical significance of our findings through hypothesis testing.
 
 ## Objectives
 
-1. **Determine Campaign Success**: Analyze whether the ads increased conversions.
-2. **Statistical Significance**: Assess if the differences between the two groups (ad vs. PSA) are statistically significant.
-3. **Understand Customer Behavior**: Investigate the best day and time slots for higher conversions.
-4. **Measure Lift**: Calculate the incremental conversions attributed to ads.
+1. **Determine Campaign Success**: Analyze whether the ads increased conversion rates compared to the PSA group.
+2. **Statistical Significance**: Assess if the differences between the ad and PSA groups are statistically significant.
+3. **Lift Calculation**: Measure how much of the success can be attributed to the ads by calculating the lift in conversions.
+4. **User Behavior Insights**: Identify the days and times when conversion rates peak to guide future ad placements.
+5. **Marketing Strategy**: Provide actionable strategies based on the findings to optimize future ad campaigns.
 
 ## Data Dictionary
 
-- **user id**: User ID (unique identifier)
-- **test group**: `ad` indicates the person saw the advertisement, `psa` indicates they saw the public service announcement.
-- **converted**: `True` if the person bought the product, `False` otherwise.
-- **total ads**: Number of ads seen by a person.
-- **most ads day**: Day of the week that the person saw the largest number of ads.
-- **most ads hour**: Hour of the day that the person saw the largest number of ads.
+- **user id**: Unique identifier for each user.
+- **test group**: Specifies whether a person saw an advertisement (`ad`) or a public service announcement (`psa`).
+- **converted**: Indicates whether the person purchased the product (True) or not (False).
+- **total ads**: Number of ads seen by the person.
+- **most ads day**: Day of the week when the person saw the most ads.
+- **most ads hour**: Hour of the day when the person saw the most ads.
 
-## Process Overview
+## Steps Followed in the Analysis
 
 ### 1. Data Cleaning
-We started by cleaning the dataset, handling missing values, and ensuring that the data was ready for analysis.
+We started by cleaning the dataset, handling missing values, and transforming the data to prepare it for analysis.
 
 ### 2. Exploratory Data Analysis (EDA)
-We explored the dataset to understand the distribution of ads shown, conversions by day and hour, and overall trends in conversion rates.
+We conducted an exploratory analysis to understand the general trends in the dataset, focusing on the distribution of ads seen, conversion rates across the test group (`ad` vs. `psa`), and patterns of user behavior.
 
 ### 3. Finding Conversion Rates
-We calculated the conversion rates for both the ad group and the PSA group:
-- **Ad Conversion Rate** = (Number of Conversions in Ad Group) / (Total Users in Ad Group)
-- **PSA Conversion Rate** = (Number of Conversions in PSA Group) / (Total Users in PSA Group)
+We calculated the conversion rates for both groups:
+- **Ad Conversion Rate** = (Number of conversions in the `ad` group) / (Total users in the `ad` group)
+- **PSA Conversion Rate** = (Number of conversions in the `psa` group) / (Total users in the `psa` group)
 
-### 4. Power Analysis
-We conducted a power analysis to determine the sample size required to detect significant differences between the ad and PSA groups.
+This helped us understand whether showing ads was more effective than showing PSAs in driving conversions.
 
-### 5. A/B Testing: Z-Statistic for Proportion Test
+### 4. Statistical Testing: Z-Statistic for Proportion Test
 
-We performed A/B testing using the **Z-Statistic** to compare conversion rates between the two groups. The Z-Statistic for proportions helps us determine whether there is a statistically significant difference between the ad and PSA groups.
+To determine whether the difference in conversion rates between the ad group and PSA group was statistically significant, we used the **Z-test for proportions**. This test compares the conversion rates of both groups.
 
 #### Formula for Z-Statistic:
 \[
 Z = \frac{p_{ad} - p_{psa}}{\sqrt{p_{combined}(1 - p_{combined})\left(\frac{1}{n_{ad}} + \frac{1}{n_{psa}}\right)}}
 \]
 Where:
-- \( p_{ad} \) = Conversion rate of ad group
-- \( p_{psa} \) = Conversion rate of PSA group
-- \( p_{combined} \) = Combined conversion rate of both groups
-- \( n_{ad} \) = Number of users in the ad group
-- \( n_{psa} \) = Number of users in the PSA group
+- \( p_{ad} \) = Conversion rate of the ad group.
+- \( p_{psa} \) = Conversion rate of the PSA group.
+- \( p_{combined} \) = Combined conversion rate of both groups.
+- \( n_{ad} \) = Number of users in the ad group.
+- \( n_{psa} \) = Number of users in the PSA group.
 
-We then used the p-value corresponding to the Z-score to determine whether the difference was statistically significant. 
+We then used the p-value corresponding to the Z-statistic to check for statistical significance.
 
-### 6. Chi-Square Test
+### 5. Chi-Square Test for Independence
 
-To assess the relationship between the test group (ad/PSA) and conversion outcomes, we also used the **Chi-Square test** for independence. This test helps us understand whether conversion is dependent on whether the user saw an ad or a PSA.
+To further understand the relationship between seeing ads and conversions, we performed a **Chi-Square test for independence**. This test helped us determine whether the probability of conversion was dependent on whether the user saw an ad or a PSA.
 
 #### Formula for Chi-Square:
 \[
 \chi^2 = \sum \frac{(O - E)^2}{E}
 \]
 Where:
-- \( O \) = Observed value
-- \( E \) = Expected value
+- \( O \) = Observed frequency (actual conversions in each group).
+- \( E \) = Expected frequency (based on overall conversion rate).
 
-### 7. Analysis of Conversion Rates by Day and Hour
+### 6. Day and Time Analysis
 
-We analyzed conversion rates for different days and time slots to determine which combinations performed best.
+We created a new feature combining `most ads day` and `most ads hour` to analyze conversion rates by day and time.
 
-We created a new column, `day and hour`, to combine the day and hour of the ads shown:
 ```python
 data['day and hour'] = data['most ads day'].astype(str) + '_' + data['most ads hour'].astype(str)
-
 We then analyzed conversion rates by these combinations, allowing us to identify specific days and times when ads were most effective.
 
 ### 7. Measuring Lift
@@ -108,3 +104,16 @@ Based on the analysis, the following strategies are recommended for future campa
 3. **Continuous Monitoring**: Regularly analyze user behavior patterns to adapt ad placements in real-time.
 4. **Segmented Campaigns**: Tailor campaigns to specific user segments based on their interaction with ads to maximize conversion rates.
 
+---
+
+## Future Scope
+
+In the future, we can explore several avenues to enhance our understanding and effectiveness of marketing campaigns:
+
+1. **Longitudinal Studies**: Conduct long-term studies to observe changes in user behavior over time and how it affects conversion rates.
+2. **A/B Testing Variations**: Test different versions of ads to identify the most effective designs and messaging.
+3. **Incorporate More Variables**: Include additional user data, such as demographics and purchase history, to create a more comprehensive analysis.
+4. **Machine Learning Models**: Implement predictive models to forecast conversion rates based on user interaction with ads and other relevant factors.
+5. **Cross-Channel Analysis**: Explore the impact of ads across different marketing channels (social media, email, etc.) to identify the most effective platforms for ads.
+
+By following these future directions, companies can better tailor their marketing efforts and continue to improve their campaign performance.
